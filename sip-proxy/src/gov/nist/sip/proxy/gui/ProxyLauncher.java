@@ -47,8 +47,6 @@ import javax.swing.border.EtchedBorder;
  */
 public class ProxyLauncher extends JFrame{
 
-	private static final String DEFAULT_PROXY_CONFIG_FILE = "src/gov/nist/sip/proxy/configuration/configuration.xml";
-	
     // Menus
     protected JMenuBar menuBar;
     protected JMenu menuMenu;
@@ -88,9 +86,10 @@ public class ProxyLauncher extends JFrame{
     // All for the Button
     protected static Border buttonBorder=new BevelBorder(BevelBorder.RAISED);
     protected static Color  buttonBackGroundColor=new Color(186,175,175);
-   
+    private static final String DEFAULT_PROXY_CONFIG_FILE = "gov/nist/sip/proxy/configuration/configuration.xml";
   
-    public ProxyLauncher(String configFile) {
+    @SuppressWarnings("deprecation")
+	public ProxyLauncher(String configFile) {
         super("NIST-SIP proxy interface");
         System.out.println("Initialisation Proxy Interface");
         
@@ -230,7 +229,7 @@ public class ProxyLauncher extends JFrame{
         container.add(firstPanel);
       
         JLabel registrationsLabel=new JLabel("Registrations:");
-        //registrationsLabel.setToolTipText("Click on a registration to get the contacts addresses!!");
+        registrationsLabel.setToolTipText("Click on a registration to get the contacts addresses!!");
         // Alignment of the text
         registrationsLabel.setHorizontalAlignment(AbstractButton.CENTER);
         // Color of the text
@@ -344,6 +343,7 @@ public class ProxyLauncher extends JFrame{
         try{
             // the Proxy:
             //String confFile= (String) args[1];
+            //ProxyLauncher proxyLauncher= new ProxyLauncher(confFile);
             ProxyLauncher proxyLauncher= new ProxyLauncher(DEFAULT_PROXY_CONFIG_FILE);
             //proxyLauncher.start();
             //ProxyDebug.println("Proxy ready to work");

@@ -47,7 +47,7 @@ public class Authentication  {
        }
        
        String username=proxyAuthorization.getParameter("username");
-       
+       String password=proxyAuthorization.getParameter("password"); 
        try{
             boolean res=authenticationMethod.doAuthenticate
 		(username,proxyAuthorization,request);

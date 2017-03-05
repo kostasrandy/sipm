@@ -92,6 +92,7 @@ class PhoneFrame
     JPanel callControlButtons = new JPanel();
     JButton answerButton = new JButton();
     JButton hangupButton = new JButton();
+    JButton forwardButton = new JButton();
     GridLayout gridLayout1 = new GridLayout();
     Border border6;
     Border border7;
@@ -116,6 +117,8 @@ class PhoneFrame
     JPanel dialPanel = new JPanel();
     JButton dialButton = new JButton();
     JComboBox contactBox = new JComboBox();
+	JButton blockButton = new JButton();
+	JButton friendButton = new JButton();
 
     public PhoneFrame(GuiManager guiManCallback) //throws HeadlessException
     {
@@ -158,8 +161,8 @@ class PhoneFrame
         this.getContentPane().setLayout(borderLayout1);
         splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
         splitPane.setBorder(null);
-        splitPane.setMinimumSize(new Dimension(260, 300));
-        splitPane.setPreferredSize(new Dimension(260, 300));
+        splitPane.setMinimumSize(new Dimension(500, 300));
+        splitPane.setPreferredSize(new Dimension(500, 300));
 //    splitPane.setLastDividerLocation(600);
 //        splitPane.setLastDividerLocation(400);
         splitPane.setOneTouchExpandable(true);
@@ -180,6 +183,15 @@ class PhoneFrame
         hangupButton.setEnabled(false);
         hangupButton.setMnemonic('H');
         hangupButton.setText("Hangup");
+        forwardButton.setEnabled(false);
+        forwardButton.setMnemonic('H');
+        forwardButton.setText("Forward");
+        blockButton.setEnabled(false);
+        blockButton.setMnemonic('B');;
+        blockButton.setText("Block");
+        friendButton.setEnabled(false);
+        friendButton.setMnemonic('F');;
+        friendButton.setText("Friends");
         callControlButtons.setLayout(gridLayout1);
         gridLayout1.setHgap(10);
         gridLayout1.setVgap(10);
@@ -221,6 +233,9 @@ class PhoneFrame
         controlPanel.add(callControlButtons, BorderLayout.SOUTH);
         callControlButtons.add(answerButton, null);
         callControlButtons.add(hangupButton, null);
+        callControlButtons.add(forwardButton, null);
+        callControlButtons.add(blockButton, null);
+        callControlButtons.add(friendButton, null);
         controlPanel.add(participantsScroll,  BorderLayout.CENTER);
         participantsScroll.setViewportView(participantsTable);
         statusPanel.add(registrationLabel, BorderLayout.WEST);
